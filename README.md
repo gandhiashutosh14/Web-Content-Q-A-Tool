@@ -1,83 +1,32 @@
-# Web Content Q&A Tool
+# Web Content Q&A — Historical Retrieval Baseline
 
-This tool allows users to input URLs, extract their content, and ask questions about the information contained within those pages. The tool provides answers based solely on the content from the provided URLs, without relying on external knowledge.
+> **Status:** historical prototype; not part of my current recruiter-facing portfolio.
 
-## Features
+This small Streamlit project explores a pre-LLM retrieval baseline: ingest text from user-supplied web pages, represent passages with TF-IDF, rank them with cosine similarity, and show the most relevant excerpts with source URLs.
 
-- URL content ingestion
-- Text-based question answering
-- Source attribution for answers
-- Relevance scoring
-- Clean and intuitive user interface
+It is intentionally simple and is useful mainly as a historical contrast with the retrieval, grounding, evaluation, and agentic systems in my newer work.
 
-## Requirements
+## What it demonstrates
 
-- Python 3.8+
-- Required packages listed in `requirements.txt`
+- URL ingestion and HTML text extraction with BeautifulSoup.
+- TF-IDF representation and cosine-similarity retrieval.
+- Source attribution and relevance scores.
+- A lightweight Streamlit interface.
 
-## Installation
+## Run locally
 
-1. Clone this repository:
 ```bash
-git clone <your-repo-url>
-cd web-content-qa
-```
-
-2. Create a virtual environment (recommended):
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install dependencies:
-```bash
+git clone https://github.com/gandhiashutosh14/Web-Content-Q-A-Tool.git
+cd Web-Content-Q-A-Tool
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
-```
-
-## Running the Application
-
-Start the Streamlit app:
-```bash
 streamlit run app.py
 ```
 
-The application will open in your default web browser.
+## Scope
 
-## Usage
+This is **not RAG and not a production Q&A system**: there is no embedding model, generative model, persistent store, authentication, or retrieval evaluation set. It is retained as an earlier information-retrieval exercise rather than actively maintained.
 
-1. Enter a URL in the input field and click "Add URL" to analyze its content
-2. Add multiple URLs as needed
-3. Enter your question in the question input field
-4. Click "Get Answer" to receive relevant information from the analyzed content
-
-## How it Works
-
-1. **Content Ingestion**:
-   - URLs are processed using BeautifulSoup for HTML parsing
-   - Text content is extracted and cleaned
-   - Content is split into sentences for granular analysis
-
-2. **Question Answering**:
-   - Uses TF-IDF vectorization for text representation
-   - Employs cosine similarity for finding relevant content
-   - Returns multiple relevant passages with source attribution
-
-3. **Results**:
-   - Displays relevant text passages
-   - Shows source URLs
-   - Includes relevance scores for transparency
-
-## Limitations
-
-- Only processes text content (no images or other media)
-- Requires active internet connection for URL fetching
-- Basic text similarity matching (no advanced NLP or deep learning)
-- Memory-based storage (content is lost when the application restarts)
-
-## Future Improvements
-
-- Add support for PDF and other document types
-- Implement persistent storage
-- Add more advanced NLP techniques
-- Improve answer generation and summarization
-- Add support for authentication and user sessions
+For current work, start from my [GitHub profile](https://github.com/gandhiashutosh14).
